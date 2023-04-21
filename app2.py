@@ -15,12 +15,12 @@ engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
 
 db = scoped_session(sessionmaker(bind=engine))
 
-@application.route('/')
+@app.route('/')
 def index():
     data = load_db_data()
     return render_template('index.html', data=data)
 
-@application.route('/data')
+@app.route('/data')
 def load_db_data():
     # Select the desired columns
     # yr=year, mag=magnitude, inj=injuries, fat =fatalities, slon=starting longitude, slat =starting latiude, st=state, len=length of tornado, wid=width of tornado.
