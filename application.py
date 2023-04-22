@@ -32,11 +32,11 @@ def load_db_data():
     data = db.execute(f"SELECT {', '.join(selected_columns)} FROM tornado_data").fetchall()
 
     # Convert the fetched data to a JSON-friendly format
-    result = []
-    for row in data:
-        result.append(dict(zip(selected_columns, row)))
+#     result = []
+#     for row in data:
+#         result.append(dict(zip(selected_columns, row)))
 
-    return jsonify(result)
+#     return jsonify(result)
 
-if __name__ == '__main__':
-    application.run(debug=True)
+# if __name__ == '__main__':
+#     application.run(debug=True)
