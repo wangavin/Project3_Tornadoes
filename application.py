@@ -5,7 +5,8 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.pool import NullPool
 
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 
 # Set up database
 db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
@@ -17,12 +18,12 @@ engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
 
 db = scoped_session(sessionmaker(bind=engine))
 
-@app.route('/')
+@application.route('/')
 def index():
     data = load_db_data()
     return render_template('index.html', data=data)
 
-@app.route('/data')
+@application.route('/data')
 def load_db_data():
     # Select the desired columns
     # yr=year, mag=magnitude, inj=injuries, fat =fatalities, slon=starting longitude, slat =starting latiude, st=state, len=length of tornado, wid=width of tornado.
@@ -38,4 +39,4 @@ def load_db_data():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
