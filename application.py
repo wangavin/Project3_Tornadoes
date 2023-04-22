@@ -6,7 +6,7 @@ from sqlalchemy.pool import NullPool
 
 
 application = Flask(__name__)
-app = application
+# app = application
 
 # Set up database
 db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
