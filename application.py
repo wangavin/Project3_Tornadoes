@@ -9,16 +9,16 @@ application = Flask(__name__)
 # app = application
 
 # Set up database
-db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
+# db_file = os.path.join("data", "yrmomaginjfatslonslatstlenwid.sqlite")
 
-engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
+# engine = create_engine(f"sqlite:///{db_file}", poolclass=NullPool)
 
-db = scoped_session(sessionmaker(bind=engine))
+# db = scoped_session(sessionmaker(bind=engine))
 
-@application.route('/')
-def index():
-    data = load_db_data()
-    return render_template('index.html', data=data)
+# @application.route('/')
+# def index():
+#     data = load_db_data()
+#     return render_template('index.html', data=data)
 
 # @application.route('/data')
 # def load_db_data():
