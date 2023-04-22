@@ -23,12 +23,12 @@ def index():
     data = load_db_data()
     return render_template('index.html', data=data)
 
-@application.route('/data')
-def load_db_data():
-    # Select the desired columns
-    # yr=year, mag=magnitude, inj=injuries, fat =fatalities, slon=starting longitude, slat =starting latiude, st=state, len=length of tornado, wid=width of tornado.
-    selected_columns = ['yr', 'mo', 'mag', 'inj', 'fat', 'slon', 'slat', 'st', 'len', 'wid']
-    # Execute a raw SQL query to fetch the data
+# @application.route('/data')
+# def load_db_data():
+#     # Select the desired columns
+#     # yr=year, mag=magnitude, inj=injuries, fat =fatalities, slon=starting longitude, slat =starting latiude, st=state, len=length of tornado, wid=width of tornado.
+#     selected_columns = ['yr', 'mo', 'mag', 'inj', 'fat', 'slon', 'slat', 'st', 'len', 'wid']
+#     # Execute a raw SQL query to fetch the data
     data = db.execute(f"SELECT {', '.join(selected_columns)} FROM tornado_data").fetchall()
 
     # Convert the fetched data to a JSON-friendly format
